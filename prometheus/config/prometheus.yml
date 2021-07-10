@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 1m
+  scrape_timeout: 5s
+scrape_configs:
+  - job_name: freqtrade1
+    static_configs:
+      - targets:
+        - "ftmetric1:8091"
+  - job_name: freqtrade2
+    static_configs:
+      - targets:
+        - "ftmetric2:8092"
+  - job_name: freqtrade3
+    static_configs:
+      - targets:
+        - "ftmetric3:8093"       
+  - job_name: freqtrade4
+    static_configs:
+      - targets:
+        - "ftmetric4:8094"
+  - job_name: freqtrade5
+    static_configs:
+      - targets:
+        - "ftmetric5:8095"
+  - job_name: freqtrade6
+    static_configs:
+      - targets:
+        - "ftmetric6:8096"

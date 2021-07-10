@@ -1,0 +1,27 @@
+{
+   "exchange":{
+      "name":"binance",
+      "key":"",
+      "secret":""
+   },
+   "dry_run":true,
+   "dry_run_wallet":2500,
+   "telegram":{
+      "enabled":false,
+      "token":"",
+      "chat_id":""
+   },
+   "api_server":{
+	  "enable_openapi":true,
+      "enabled":true,
+      "listen_ip_address":"0.0.0.0",
+      "listen_port":8086,
+      "verbosity":"error",
+      "jwt_secret_key":"6866a51d820a7579e44365b3fca11f19df932e6b32c4ae87222d985a4dd5a67c",
+      "CORS_origins":[
+         
+      ],
+      "username":"freqtrader",
+      "password":"secret"
+   }
+}
