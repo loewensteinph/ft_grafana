@@ -15,7 +15,7 @@
 > Follow the instrucions https://www.freqtrade.io/en/stable/docker_quickstart/ copy the files from this repo to ft_userdata
 
 Deploy Containers
-> docker-compose -f docker-compose.yml -f docker-compose-grafana.yml -up 
+> docker-compose -f docker-compose.yml up 
  
 <p align="left">
   <img src="doc/containers.JPG" width="700" title="Container Setup">
