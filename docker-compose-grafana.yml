@@ -123,7 +123,7 @@ services:
       timeout: 4s
       retries: 3
   ftmetric1:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric1
     restart: on-failure
     ports:
@@ -142,7 +142,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric2:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric2
     restart: on-failure
     ports:
@@ -161,7 +161,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric3:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric3
     restart: on-failure
     ports:
@@ -180,7 +180,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric4:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric4
     restart: on-failure
     ports:
@@ -199,7 +199,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric5:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric5
     restart: on-failure
     ports:
@@ -218,7 +218,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric6:
-    image: kamontat/ftmetric:v3.8.1
+    image: ghcr.io/kamontat/ftmetric:v4.1.0-beta.5
     container_name: ftmetric6
     restart: on-failure
     ports:
