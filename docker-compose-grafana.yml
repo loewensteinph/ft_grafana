@@ -1,4 +1,6 @@
 version: "3"
+volumes:
+    prometheus_data: {}
 services:
   freqtrade1:
     image: freqtradeorg/freqtrade:latest
@@ -244,6 +246,7 @@ services:
     volumes:
       # you can config prometheus via this directory (prometheus.yml)
        - ./prometheus/config:/etc/prometheus/
+       - prometheus_data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     extra_hosts:
