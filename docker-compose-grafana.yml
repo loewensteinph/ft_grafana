@@ -255,6 +255,7 @@ services:
       - ftmetric3
       - ftmetric4
       - ftmetric5
+      - ftmetric6      
       - prometheus
     environment:
       ## override server url
