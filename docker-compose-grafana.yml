@@ -1,6 +1,7 @@
 version: "3"
 volumes:
     prometheus_data: {}
+    grafana_data: {}    
 services:
   freqtrade1:
     image: freqtradeorg/freqtrade:latest
@@ -262,6 +263,8 @@ services:
     restart: on-failure
     ports:
       - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana 
     depends_on:
       - ftmetric1
       - ftmetric2
