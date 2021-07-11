@@ -5,6 +5,7 @@
 
 > Quickstart for docker to provide a Grafana Dashboard for several freqtrade instances.
 > See https://github.com/freqtrade/freqtrade
+> Uses ft_metric see https://github.com/kamontat/fthelper/ 
 
 <p align="left">
   <img src="doc/dashboard.JPG" width="700" title="Container Setup">
