@@ -129,11 +129,11 @@ services:
     ports:
       - 8091:8091
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade1:8081
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8091
-      - FTP_FREQTRADE__CLUSTER=1A
+      - FTH_FREQTRADE__URL=http://freqtrade1:8081
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8091
+      - FTH_FREQTRADE__CLUSTER=1A
     depends_on:
       - freqtrade1
     healthcheck:
@@ -148,11 +148,11 @@ services:
     ports:
       - 8092:8092    
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade2:8082
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8092
-      - FTP_FREQTRADE__CLUSTER=2A
+      - FTH_FREQTRADE__URL=http://freqtrade2:8082
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8092
+      - FTH_FREQTRADE__CLUSTER=2A
     depends_on:
       - freqtrade2
     healthcheck:
@@ -167,11 +167,11 @@ services:
     ports:
       - 8093:8093    
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade3:8083
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8093
-      - FTP_FREQTRADE__CLUSTER=3A
+      - FTH_FREQTRADE__URL=http://freqtrade3:8083
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8093
+      - FTH_FREQTRADE__CLUSTER=3A
     depends_on:
       - freqtrade3
     healthcheck:
@@ -186,11 +186,11 @@ services:
     ports:
       - 8094:8094  
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade4:8084
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8094
-      - FTP_FREQTRADE__CLUSTER=4A
+      - FTH_FREQTRADE__URL=http://freqtrade4:8084
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8094
+      - FTH_FREQTRADE__CLUSTER=4A
     depends_on:
       - freqtrade4
     healthcheck:
@@ -205,11 +205,11 @@ services:
     ports:
       - 8095:8095    
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade5:8085
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8095
-      - FTP_FREQTRADE__CLUSTER=5A
+      - FTH_FREQTRADE__URL=http://freqtrade5:8085
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8095
+      - FTH_FREQTRADE__CLUSTER=5A
     depends_on:
       - freqtrade5
     healthcheck:
@@ -224,11 +224,11 @@ services:
     ports:
       - 8096:8096    
     environment:
-      - FTP_FREQTRADE__URL=http://freqtrade6:8086
-      - FTP_FREQTRADE__USERNAME=freqtrader
-      - FTP_FREQTRADE__PASSWORD=secret
-      - FTP_SERVER__PORT=8096
-      - FTP_FREQTRADE__CLUSTER=6A
+      - FTH_FREQTRADE__URL=http://freqtrade6:8086
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8096
+      - FTH_FREQTRADE__CLUSTER=6A
     depends_on:
       - freqtrade6
     healthcheck:
