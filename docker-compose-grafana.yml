@@ -112,9 +112,9 @@ services:
       trade 
       --logfile /freqtrade/user_data/logs/freqtrade_6.log
       --db-url sqlite:////freqtrade/user_data/dev_6.sqlite
-      --config /freqtrade/user_data/config_kraken.json
+      --config /freqtrade/user_data/config.json
       --config /freqtrade/user_data/dev_env/config_dev_6.json
-      --strategy Combined_NFIv7_SMA_Kraken
+      --strategy NostalgiaForInfinityV6
     healthcheck:
       test: ["CMD-SHELL", "python3 /freqtrade/scripts/rest_client.py --config /freqtrade/user_data/config_kraken.json --config /freqtrade/user_data/dev_env/config_dev_6.json ping | grep -q pong"]
       interval: 30s
