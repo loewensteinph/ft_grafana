@@ -15,7 +15,7 @@
 	  "enable_openapi":true,
       "enabled":true,
       "listen_ip_address":"0.0.0.0",
-      "listen_port":8083,
+      "listen_port":8084,
       "verbosity":"error",
       "jwt_secret_key":"6866a51d820a7579e44365b3fca11f19df932e6b32c4ae87222d985a4dd5a67c",
       "CORS_origins":[

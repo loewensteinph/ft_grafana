@@ -143,6 +143,8 @@ services:
     image: kamontat/ftmetric:v3.8.1
     container_name: ftmetric2
     restart: on-failure
+    ports:
+      - 8092:8092    
     environment:
       - FTP_FREQTRADE__URL=http://freqtrade2:8082
       - FTP_FREQTRADE__USERNAME=freqtrader
@@ -160,6 +162,8 @@ services:
     image: kamontat/ftmetric:v3.8.1
     container_name: ftmetric3
     restart: on-failure
+    ports:
+      - 8093:8093    
     environment:
       - FTP_FREQTRADE__URL=http://freqtrade3:8083
       - FTP_FREQTRADE__USERNAME=freqtrader
@@ -177,6 +181,8 @@ services:
     image: kamontat/ftmetric:v3.8.1
     container_name: ftmetric4
     restart: on-failure
+    ports:
+      - 8094:8094  
     environment:
       - FTP_FREQTRADE__URL=http://freqtrade4:8084
       - FTP_FREQTRADE__USERNAME=freqtrader
@@ -194,6 +200,8 @@ services:
     image: kamontat/ftmetric:v3.8.1
     container_name: ftmetric5
     restart: on-failure
+    ports:
+      - 8095:8095    
     environment:
       - FTP_FREQTRADE__URL=http://freqtrade5:8085
       - FTP_FREQTRADE__USERNAME=freqtrader
@@ -211,6 +219,8 @@ services:
     image: kamontat/ftmetric:v3.8.1
     container_name: ftmetric6
     restart: on-failure
+    ports:
+      - 8096:8096    
     environment:
       - FTP_FREQTRADE__URL=http://freqtrade6:8086
       - FTP_FREQTRADE__USERNAME=freqtrader
@@ -230,7 +240,7 @@ services:
     container_name: prometheus
     # be aware before open the port
     ports:
-       - 9090:9090 -
+       - 9090:9090
     volumes:
       # you can config prometheus via this directory (prometheus.yml)
        - ./prometheus/config:/etc/prometheus/

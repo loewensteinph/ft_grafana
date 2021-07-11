@@ -7,7 +7,7 @@
    "dry_run":true,
    "dry_run_wallet":2500,
    "telegram":{
-      "enabled":true,
+      "enabled":false,
       "token":"",
       "chat_id":""
    },

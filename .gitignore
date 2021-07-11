@@ -1,0 +1,7 @@
+*.sqlite
+user_data/logs/freqtrade_1.log
+user_data/logs/freqtrade_2.log
+user_data/logs/freqtrade_3.log
+user_data/logs/freqtrade_4.log
+user_data/logs/freqtrade_5.log
+user_data/logs/freqtrade_6.log
