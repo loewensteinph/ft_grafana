@@ -16,8 +16,90 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
+  "iteration": 1626892221909,
   "links": [],
   "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum by(job) (freqtrade_pair_performance_profit_abs{})",
+          "interval": "",
+          "legendFormat": "{{job}}",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum (freqtrade_pair_performance_profit_abs{})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Total",
+          "refId": "B"
+        }
+      ],
+      "title": "Profit",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade3",
+            "renamePattern": "Kucoin"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade",
+            "renamePattern": "Binance"
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
     {
       "datasource": null,
       "fieldConfig": {
@@ -45,10 +127,72 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "freqtrade_pair_performance_profit_pct{job=\"freqtrade3\"}",
+          "interval": "",
+          "legendFormat": "{{pair}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg profit per pair Cukoin",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
         "w": 12,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 4,
       "options": {
@@ -67,15 +211,30 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "avg by(strategy)(freqtrade_pair_performance_profit_pct{}) ",
+          "expr": "avg by(job)(freqtrade_pair_performance_profit_pct{}) ",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "{{job}}",
           "refId": "A"
         }
       ],
-      "title": "Avg Profit",
-      "transformations": [],
+      "title": "Avg profit",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade3",
+            "renamePattern": "Kucoin"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade",
+            "renamePattern": "Binance"
+          }
+        }
+      ],
       "type": "gauge"
     },
     {
@@ -98,17 +257,94 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 9,
+        "h": 12,
+        "w": 12,
         "x": 12,
-        "y": 0
+        "y": 13
       },
-      "id": 6,
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "freqtrade_pair_performance_profit_pct{job=\"freqtrade\"}",
+          "interval": "",
+          "legendFormat": "{{pair}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg profit per pair Binance",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-orange",
+                "value": 0.2
+              },
+              {
+                "color": "dark-yellow",
+                "value": 0.5
+              },
+              {
+                "color": "light-green",
+                "value": 0.7
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 0.8
+              },
+              {
+                "color": "dark-green",
+                "value": 0.9
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "id": 12,
       "options": {
         "displayMode": "gradient",
         "orientation": "horizontal",
@@ -126,15 +362,29 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum by(strategy)(freqtrade_pair_performance_profit_abs{})",
-          "hide": false,
+          "expr": "sum by (job) (freqtrade_trade_winning{}) / sum by (job) (freqtrade_trade_total{}) ",
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "{{job}}",
           "refId": "A"
         }
       ],
-      "title": "Profit",
-      "transformations": [],
+      "title": "Won trades",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade3",
+            "renamePattern": "Kucoin"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade",
+            "renamePattern": "Binance"
+          }
+        }
+      ],
       "type": "bargauge"
     },
     {
@@ -166,7 +416,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 20
       },
       "id": 8,
       "options": {
@@ -186,14 +436,29 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "avg by(strategy)(freqtrade_trade_avg_duration_seconds{}/60)",
+          "expr": "avg by(job)(freqtrade_trade_avg_duration_seconds{}/60)",
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "{{job}}",
           "refId": "A"
         }
       ],
-      "title": "Avg Trade Duration",
-      "transformations": [],
+      "title": "Avg trade duration",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade3",
+            "renamePattern": "Kucoin"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "freqtrade",
+            "renamePattern": "Binance"
+          }
+        }
+      ],
       "type": "bargauge"
     },
     {
@@ -201,58 +466,97 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-RdYlGr"
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": 3600000,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "dark-red",
                 "value": null
               },
               {
-                "color": "red",
-                "value": 80
+                "color": "green",
+                "value": 0
               }
             ]
-          },
-          "unit": "percentunit"
+          }
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 9,
-        "x": 12,
-        "y": 10
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 25
       },
-      "id": 12,
+      "id": 6,
       "options": {
-        "displayMode": "gradient",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
         },
-        "showUnfilled": true,
-        "text": {}
+        "tooltip": {
+          "mode": "multi"
+        }
       },
       "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
-          "expr": "freqtrade_trade_winning{}/freqtrade_trade_total{}",
+          "expr": "sum by(job)(freqtrade_pair_performance_profit_abs{})",
+          "hide": false,
+          "instant": false,
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "{{job}}",
           "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(freqtrade_pair_performance_profit_abs{})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "total",
+          "refId": "B"
         }
       ],
-      "title": "Won Trades",
-      "type": "bargauge"
+      "title": "Profit",
+      "transformations": [],
+      "type": "timeseries"
     },
     {
       "datasource": null,
@@ -273,14 +577,17 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 1,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "auto",
-            "spanNulls": false,
+            "spanNulls": 3600000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -307,10 +614,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
-        "w": 21,
-        "x": 0,
-        "y": 15
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 25
       },
       "id": 2,
       "options": {
@@ -326,13 +633,21 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "freqtrade_fiat_balance{}",
+          "expr": "sum(avg by(job)(freqtrade_fiat_balance{}))",
+          "interval": "",
+          "legendFormat": "kum",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "avg by(job)(freqtrade_fiat_balance{})",
+          "hide": false,
           "interval": "",
           "legendFormat": "{{strategy}}",
-          "refId": "A"
+          "refId": "B"
         }
       ],
-      "title": "FIAT",
+      "title": "Balance Fiat",
       "type": "timeseries"
     },
     {
@@ -362,9 +677,9 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 21,
+        "w": 12,
         "x": 0,
-        "y": 26
+        "y": 35
       },
       "id": 10,
       "options": {
@@ -384,10 +699,10 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "freqtrade_trade_total{}",
+          "expr": "sum by (job) (freqtrade_trade_total{})",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "{{job}}",
           "refId": "A"
         }
       ],
@@ -395,19 +710,85 @@
       "type": "bargauge"
     }
   ],
+  "refresh": "1m",
   "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "freqtrade",
+            "freqtrade3"
+          ],
+          "value": [
+            "freqtrade",
+            "freqtrade3"
+          ]
+        },
+        "datasource": null,
+        "definition": "label_values(freqtrade_build_info, job)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "job name",
+        "multi": true,
+        "name": "job",
+        "options": [],
+        "query": {
+          "query": "label_values(freqtrade_build_info, job)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": null,
+        "definition": "label_values(freqtrade_build_info{job=~\"$job\"}, strategy)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": "Strategy name",
+        "multi": true,
+        "name": "strategy",
+        "options": [],
+        "query": {
+          "query": "label_values(freqtrade_build_info{job=~\"$job\"}, strategy)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "freqtrade",
-  "uid": "aWiSlZmnz",
-  "version": 11
+  "uid": "oJU8NnZnz",
+  "version": 15
 }
