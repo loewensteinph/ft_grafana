@@ -31,6 +31,8 @@ services:
       - 8082:8082
     volumes:
       - ./user_data:/freqtrade/user_data
+    depends_on:
+      - ftmetric1
     command: >
       trade 
       --logfile /freqtrade/user_data/logs/freqtrade_2.log
@@ -51,6 +53,8 @@ services:
       - 8083:8083
     volumes:
       - ./user_data:/freqtrade/user_data
+    depends_on:
+      - ftmetric2
     command: >
       trade 
       --logfile /freqtrade/user_data/logs/freqtrade_3.log
