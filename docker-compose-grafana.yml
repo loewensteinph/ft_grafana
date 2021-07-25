@@ -4,7 +4,9 @@ volumes:
     grafana_data: {}    
 services:
   freqtrade1:
-    image: freqtradeorg/freqtrade:latest
+    build:
+      context: .
+      dockerfile: "./docker/Dockerfile.custom"
     container_name: freqtrade1
     restart: on-failure
     ports:
@@ -24,15 +26,15 @@ services:
       timeout: 4s
       retries: 3
   freqtrade2:
-    image: freqtradeorg/freqtrade:latest
+    build:
+      context: .
+      dockerfile: "./docker/Dockerfile.custom"
     container_name: freqtrade2
     restart: on-failure
     ports:
       - 8082:8082
     volumes:
       - ./user_data:/freqtrade/user_data
-    depends_on:
-      - ftmetric1
     command: >
       trade 
       --logfile /freqtrade/user_data/logs/freqtrade_2.log
@@ -46,15 +48,15 @@ services:
       timeout: 4s
       retries: 3
   freqtrade3:
-    image: freqtradeorg/freqtrade:latest
+    build:
+      context: .
+      dockerfile: "./docker/Dockerfile.custom"
     container_name: freqtrade3
     restart: on-failure
     ports:
       - 8083:8083
     volumes:
       - ./user_data:/freqtrade/user_data
-    depends_on:
-      - ftmetric2
     command: >
       trade 
       --logfile /freqtrade/user_data/logs/freqtrade_3.log
@@ -68,7 +70,7 @@ services:
       timeout: 4s
       retries: 3
   ftmetric1:
-    image: ghcr.io/kamontat/ftmetric:v4.1.1
+    image: ghcr.io/kamontat/ftmetric:v4.3.0
     container_name: ftmetric1
     restart: on-failure
     ports:
@@ -79,6 +81,7 @@ services:
       - FTH_FREQTRADE__PASSWORD=secret
       - FTH_SERVER__PORT=8091
       - FTH_FREQTRADE__CLUSTER=1A
+    command: --no-env-file
     depends_on:
       - freqtrade1
     healthcheck:
@@ -87,7 +90,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric2:
-    image: ghcr.io/kamontat/ftmetric:v4.1.1
+    image: ghcr.io/kamontat/ftmetric:v4.3.0
     container_name: ftmetric2
     restart: on-failure
     ports:
@@ -98,6 +101,7 @@ services:
       - FTH_FREQTRADE__PASSWORD=secret
       - FTH_SERVER__PORT=8092
       - FTH_FREQTRADE__CLUSTER=2A
+    command: --no-env-file
     depends_on:
       - freqtrade2
     healthcheck:
@@ -106,7 +110,7 @@ services:
       timeout: 1s
       retries: 3
   ftmetric3:
-    image: ghcr.io/kamontat/ftmetric:v4.1.1
+    image: ghcr.io/kamontat/ftmetric:v4.3.0
     container_name: ftmetric3
     restart: on-failure
     ports:
@@ -117,6 +121,7 @@ services:
       - FTH_FREQTRADE__PASSWORD=secret
       - FTH_SERVER__PORT=8093
       - FTH_FREQTRADE__CLUSTER=3A
+    command: --no-env-file
     depends_on:
       - freqtrade3
     healthcheck:
@@ -128,6 +133,12 @@ services:
     image: prom/prometheus:v2.28.0
     restart: on-failure
     container_name: prometheus
+    environment:
+      - FTH_FREQTRADE__URL=http://freqtrade3:8083
+      - FTH_FREQTRADE__USERNAME=freqtrader
+      - FTH_FREQTRADE__PASSWORD=secret
+      - FTH_SERVER__PORT=8090
+      - FTH_FREQTRADE__CLUSTER=3A    
     # be aware before open the port
     ports:
        - 9090:9090
@@ -151,11 +162,13 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - grafana_data:/var/lib/grafana 
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
     depends_on:
       - ftmetric1
       - ftmetric2
-      - ftmetric3
+      - ftmetric3    
       - prometheus
     environment:
       ## override server url
