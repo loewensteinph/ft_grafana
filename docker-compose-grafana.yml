@@ -130,7 +130,7 @@ services:
       timeout: 1s
       retries: 3
   prometheus:
-    image: prom/prometheus:v2.28.0
+    image: prom/prometheus:latest
     restart: on-failure
     container_name: prometheus
     environment:
@@ -156,7 +156,7 @@ services:
       timeout: 1s
       retries: 3
   grafana:
-    image: grafana/grafana:8.0.3
+    image: grafana/grafana:latest
     container_name: grafana
     restart: on-failure
     ports:
