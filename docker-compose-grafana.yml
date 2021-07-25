@@ -133,12 +133,6 @@ services:
     image: prom/prometheus:latest
     restart: on-failure
     container_name: prometheus
-    environment:
-      - FTH_FREQTRADE__URL=http://freqtrade3:8083
-      - FTH_FREQTRADE__USERNAME=freqtrader
-      - FTH_FREQTRADE__PASSWORD=secret
-      - FTH_SERVER__PORT=8090
-      - FTH_FREQTRADE__CLUSTER=3A    
     # be aware before open the port
     ports:
        - 9090:9090
@@ -146,6 +140,10 @@ services:
       # you can config prometheus via this directory (prometheus.yml)
        - ./prometheus/config:/etc/prometheus/
        - prometheus_data:/prometheus
+    depends_on:
+      - ftmetric1
+      - ftmetric2
+      - ftmetric3            
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
     extra_hosts:
