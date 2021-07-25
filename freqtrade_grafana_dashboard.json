@@ -16,137 +16,9 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1626893434239,
+  "iteration": 1627200866119,
   "links": [],
   "panels": [
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-RdYlGr"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "id": 18,
-      "options": {
-        "displayMode": "gradient",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true,
-        "text": {}
-      },
-      "pluginVersion": "8.0.3",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "sum by(job) (freqtrade_pair_performance_profit_abs{})",
-          "interval": "",
-          "legendFormat": "{{job}}",
-          "refId": "A"
-        },
-        {
-          "exemplar": true,
-          "expr": "sum (freqtrade_pair_performance_profit_abs{})",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "Total",
-          "refId": "B"
-        }
-      ],
-      "title": "Profit",
-      "transformations": [],
-      "type": "bargauge"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "continuous-RdYlGr"
-          },
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 13,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 14,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.0.3",
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "freqtrade_pair_performance_profit_pct{}",
-          "interval": "",
-          "legendFormat": "{{pair}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Avg profit per pair",
-      "transformations": [],
-      "type": "stat"
-    },
     {
       "datasource": null,
       "fieldConfig": {
@@ -177,7 +49,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 0
       },
       "id": 4,
       "options": {
@@ -212,40 +84,11 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-RdYlGr"
           },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "smooth",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": 3600000,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
+          "decimals": 2,
           "mappings": [],
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -258,46 +101,184 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 13
+        "y": 0
       },
-      "id": 2,
+      "id": 14,
+      "interval": null,
+      "maxDataPoints": null,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single"
-        }
+        "text": {},
+        "textMode": "auto"
       },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": false,
+          "expr": "freqtrade_pair_performance_profit_pct{job=\"freqtrade1\"}",
+          "instant": false,
+          "interval": "1",
+          "intervalFactor": 1,
+          "legendFormat": "{{pair}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg profit per pair freqtrade1",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyEUR"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "id": 18,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(avg by(job)(freqtrade_fiat_balance{}))",
+          "expr": "sum by(job) (freqtrade_pair_performance_profit_abs{}) * avg by(job) (freqtrade_rate_convert{})",
           "interval": "",
-          "legendFormat": "kum",
+          "legendFormat": "{{job}}",
           "refId": "A"
         },
         {
           "exemplar": true,
-          "expr": "avg by(job)(freqtrade_fiat_balance{})",
+          "expr": "sum (freqtrade_pair_performance_profit_abs{}) * avg (freqtrade_rate_convert{})",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{strategy}}",
+          "legendFormat": "Total",
           "refId": "B"
         }
       ],
-      "title": "Balance Fiat",
-      "type": "timeseries"
+      "title": "Profit",
+      "transformations": [],
+      "type": "bargauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 19,
+      "interval": null,
+      "maxDataPoints": null,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": false,
+          "expr": "freqtrade_pair_performance_profit_pct{job=\"freqtrade2\"}",
+          "instant": false,
+          "interval": "1",
+          "intervalFactor": 1,
+          "legendFormat": "{{pair}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg profit per pair freqtrade2",
+      "transformations": [],
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -379,6 +360,75 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "continuous-RdYlGr"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 20,
+      "interval": null,
+      "maxDataPoints": null,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": false,
+          "expr": "freqtrade_pair_performance_profit_pct{job=\"freqtrade3\"}",
+          "instant": false,
+          "interval": "1",
+          "intervalFactor": 1,
+          "legendFormat": "{{pair}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg profit per pair freqtrade3",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "continuous-GrYlRd"
           },
           "mappings": [],
@@ -430,22 +480,7 @@
         }
       ],
       "title": "Avg trade duration",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade3",
-            "renamePattern": "Kucoin"
-          }
-        },
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade",
-            "renamePattern": "Binance"
-          }
-        }
-      ],
+      "transformations": [],
       "type": "bargauge"
     },
     {
@@ -499,7 +534,8 @@
                 "value": 0
               }
             ]
-          }
+          },
+          "unit": "currencyEUR"
         },
         "overrides": []
       },
@@ -524,7 +560,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum by(job)(freqtrade_pair_performance_profit_abs{})",
+          "expr": "sum by(job)(freqtrade_pair_performance_profit_abs{}) * avg by(job) (freqtrade_rate_convert{})",
           "hide": false,
           "instant": false,
           "interval": "",
@@ -533,7 +569,7 @@
         },
         {
           "exemplar": true,
-          "expr": "sum(freqtrade_pair_performance_profit_abs{})",
+          "expr": "sum(freqtrade_pair_performance_profit_abs{}) * avg (freqtrade_rate_convert{})",
           "hide": false,
           "instant": false,
           "interval": "",
@@ -543,6 +579,98 @@
       ],
       "title": "Profit",
       "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": 3600000,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(avg by(job)(freqtrade_fiat_balance{}))",
+          "interval": "",
+          "legendFormat": "kum",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "avg by(job)(freqtrade_fiat_balance{})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{strategy}}",
+          "refId": "B"
+        }
+      ],
+      "title": "Balance Fiat",
       "type": "timeseries"
     },
     {
@@ -572,7 +700,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 12,
+        "w": 24,
         "x": 0,
         "y": 35
       },
@@ -616,11 +744,13 @@
         "current": {
           "selected": true,
           "text": [
-            "freqtrade",
+            "freqtrade1",
+            "freqtrade2",
             "freqtrade3"
           ],
           "value": [
-            "freqtrade",
+            "freqtrade1",
+            "freqtrade2",
             "freqtrade3"
           ]
         },
@@ -684,6 +814,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "freqtrade",
-  "uid": "oJU8NnZnz",
-  "version": 17
+  "uid": "iN0I42mnk",
+  "version": 9
 }
