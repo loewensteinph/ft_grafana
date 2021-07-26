@@ -82,22 +82,7 @@
         }
       ],
       "title": "Profit",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade3",
-            "renamePattern": "Kucoin"
-          }
-        },
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade",
-            "renamePattern": "Binance"
-          }
-        }
-      ],
+      "transformations": [],
       "type": "bargauge"
     },
     {
@@ -158,7 +143,7 @@
           "refId": "A"
         }
       ],
-      "title": "Avg profit per pair Cukoin",
+      "title": "Avg profit per pair freqtrade3",
       "transformations": [],
       "type": "stat"
     },
@@ -219,22 +204,7 @@
         }
       ],
       "title": "Avg profit",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade3",
-            "renamePattern": "Kucoin"
-          }
-        },
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade",
-            "renamePattern": "Binance"
-          }
-        }
-      ],
+      "transformations": [],
       "type": "gauge"
     },
     {
@@ -294,7 +264,7 @@
           "refId": "A"
         }
       ],
-      "title": "Avg profit per pair Binance",
+      "title": "Avg profit per pair freqtrade",
       "type": "stat"
     },
     {
@@ -369,22 +339,7 @@
         }
       ],
       "title": "Won trades",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade3",
-            "renamePattern": "Kucoin"
-          }
-        },
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade",
-            "renamePattern": "Binance"
-          }
-        }
-      ],
+      "transformations": [],
       "type": "bargauge"
     },
     {
@@ -443,22 +398,7 @@
         }
       ],
       "title": "Avg trade duration",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade3",
-            "renamePattern": "Kucoin"
-          }
-        },
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": "freqtrade",
-            "renamePattern": "Binance"
-          }
-        }
-      ],
+      "transformations": [],
       "type": "bargauge"
     },
     {
